@@ -4,6 +4,7 @@ import Button from "./Button";
 
 const CartModal = ({ isOpen, onClose }) => {
   const { cart, removeFromCart, updateQuantity, totalPrice } = useCart();
+  
 
   if (!isOpen) return null;
 
@@ -26,7 +27,6 @@ const CartModal = ({ isOpen, onClose }) => {
 
         {/* Título del modal */}
         <h2 className="text-xl font-bold text-center mb-4">Carrito de Compras</h2>
-
         {/* Lista de productos en el carrito (contenido desplazable) */}
         <div className="overflow-y-auto flex-1 mb-4">
           {cart.length === 0 ? (
@@ -58,7 +58,7 @@ const CartModal = ({ isOpen, onClose }) => {
                   <input
                     type="number"
                     value={product.quantity}
-                    onChange={(e) => updateQuantity(product.id, parseInt(e.target.value))}
+                    onChange={(e) => updateQuantity(product.id, Math.max(1, parseInt(e.target.value)))}
                     className="w-16 border p-1 rounded"
                   />
                   <span>${product.price * product.quantity}</span>
@@ -78,7 +78,7 @@ const CartModal = ({ isOpen, onClose }) => {
         {/* Total del carrito (fijo en la parte inferior) */}
         <div className="bg-gray-300 p-4 rounded-lg sticky bottom-0">
           <button className="bg-green-600 hover:bg-green-700 p-2 mx-2 mt-2 item-center rounded-lg text-white text-sm sm:text-base"
-          >Comprar</button>
+          >Ir a Pagar</button>
           <div className="text-right">
             <strong>Total: ${totalPrice}</strong>
           </div>

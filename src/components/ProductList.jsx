@@ -21,7 +21,7 @@ const products = [
   { id: 16, name: "Calefactor", price: 210, image: "/src/assets/images/calefactor.jpg", quantity: 1 },
   { id: 17, name: "Humidificador", price: 130, image: "/src/assets/images/humidificador.jpg", quantity: 1 },
   { id: 18, name: "Deshumidificador", price: 240, image: "/src/assets/images/deshumidificador.jpg", quantity: 1 },
-  { id: 19, name: "Robot de cocina", price: 950, image: "/src/assets/images/robotcocina.jpg", quantity: 1 },
+  { id: 19, name: "Robot de cocina", price: 950, image: "/src/assets/images/robot.jpg", quantity: 1 },
   { id: 20, name: "Extractor de jugo", price: 300, image: "/src/assets/images/extractor.jpg", quantity: 1 },
   { id: 21, name: "Enfriador de aire", price: 400, image: "/src/assets/images/enfriador.jpg", quantity: 1 },
   { id: 22, name: "Caldera", price: 1100, image: "/src/assets/images/caldera.jpg", quantity: 1 },

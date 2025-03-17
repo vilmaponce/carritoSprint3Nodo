@@ -11,9 +11,9 @@ function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   return (
-    <ThemeProvider>
+    <ThemeProvider> {/* Envuelve la aplicación con ..Provider */}
       <CartProvider>
-        <AuthProvider> {/* Envuelve la aplicación con AuthProvider */}
+        <AuthProvider>
           <div className="min-h-screen flex flex-col">
             <Header onOpenModal={() => setIsCartOpen(true)} />
             <ProductList />

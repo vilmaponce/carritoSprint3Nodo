@@ -7,17 +7,17 @@ import AuthModal from "./AuthModal"; // Importa el modal de autenticación
 const Header = ({ onOpenModal }) => {
   const { cart } = useCart();
   const { isDarkMode } = useTheme();
-  const { isAuthModalOpen, openAuthModal, closeAuthModal } = useAuth(); // Usa el contexto de autenticación
+  const { isAuthModalOpen, openAuthModal, closeAuthModal, isAuthenticated } = useAuth(); 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMyPurchasesOpen, setIsMyPurchasesOpen] = useState(false);
 
+  // ✅ Función que muestra alerta y abre modal si no está autenticado
   const handleMyPurchasesClick = () => {
-    if (isAuthenticated) {
-      // Si está autenticado, muestra el historial de compras
-      setIsMyPurchasesOpen(true);
+    if (!isAuthenticated) {
+      alert("Debes iniciar sesión para ver tus compras.");
+      openAuthModal();
     } else {
-      // Si no está autenticado, muestra el modal de autenticación
-      openAuthModal(); // Abre el modal de autenticación
+      // Aquí podrías navegar a otra ruta o abrir otra modal de compras si lo deseas
+      console.log("Mostrando historial de compras...");
     }
   };
 
@@ -40,16 +40,16 @@ const Header = ({ onOpenModal }) => {
             onClick={openAuthModal} // Abre el modal de autenticación
             className="hover:text-yellow-400 transition-colors"
           >
-            Creá tu cuenta
+            Ingresa
           </button>
           <button
             onClick={openAuthModal} // Abre el modal de autenticación
             className="hover:text-yellow-400 transition-colors"
           >
-            Ingresá
+            Crear tu cuenta
           </button>
           <button
-            onClick={handleMyPurchasesClick}
+            onClick={handleMyPurchasesClick} // ✅ Llama a la función correcta
             className="hover:text-yellow-400 transition-colors"
           >
             Mis compras
@@ -101,7 +101,7 @@ const Header = ({ onOpenModal }) => {
             Ingresá
           </button>
           <button
-            onClick={handleMyPurchasesClick}
+            onClick={handleMyPurchasesClick} // ✅ Llama a la función correcta
             className="block px-4 py-2 hover:bg-blue-600 transition-colors w-full text-left"
           >
             Mis compras
